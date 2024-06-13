@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Split PDF</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<h1>Split PDF</h1>
+<form th:action="@{/user/split}" method="post">
+    <div>
+        <label>PDF ID:</label>
+        <input type="number" name="pdfId" required>
+    </div>
+    <div>
+        <label>From Page:</label>
+        <input type="number" name="fromPage" required>
+    </div>
+    <div>
+        <label>To Page:</label>
+        <input type="number" name="toPage" required>
+    </div>
+    <div>
+        <button type="submit" class="small-button">Split</button>
+    </div>
+</form>
+</body>
+</html>

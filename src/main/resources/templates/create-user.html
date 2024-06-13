@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create User</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<h1>Create User</h1>
+<form th:action="@{/admin/create-user}" method="post">
+    <div>
+        <label>Email:</label>
+        <input type="email" name="email" required>
+    </div>
+    <div>
+        <label>Password:</label>
+        <input type="password" name="password" required>
+    </div>
+    <div>
+        <button type="submit">Create</button>
+    </div>
+</form>
+<p><a th:href="@{/admin/users}">Back to user list</a></p>
+</body>
+</html>

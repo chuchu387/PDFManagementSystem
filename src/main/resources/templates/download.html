@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Download Split PDF</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<h1>Download Split PDF</h1>
+<p>Your PDF has been split successfully. <a th:href="@{/user/download/{pdfId}(pdfId=${pdfId})}">Download here</a></p>
+<p><a th:href="@{/user/pdfs}">Back to your PDFs</a></p>
+</body>
+</html>

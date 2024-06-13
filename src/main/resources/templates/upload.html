@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Upload PDF</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<h1>Upload PDF</h1>
+<form th:action="@{/user/upload}" method="post" enctype="multipart/form-data">
+    <div>
+        <label>Choose PDF:</label>
+        <input type="file" name="file" accept="application/pdf" required>
+    </div>
+    <div>
+        <button type="submit">Upload</button>
+    </div>
+</form>
+<p th:if="${error}" th:text="${error}"></p>
+<p><a th:href="@{/user/pdfs}">View your PDFs</a></p>
+</body>
+</html>

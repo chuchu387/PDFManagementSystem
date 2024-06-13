@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Your PDFs</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <style>
+        form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px; /* Add margin to separate forms */
+        }
+        input[type="number"] {
+            width: 50px; /* Adjust the width of the number input */
+            margin: 0 5px; /* Add margin to the number input */
+        }
+    </style>
+</head>
+<body>
+<h1>Your PDFs</h1>
+<ul>
+    <li th:each="pdf : ${pdfs}">
+        <a th:text="${pdf.name}" th:href="@{/user/view/{id}(id=${pdf.id})}"></a>
+<!--        <form th:action="@{/user/download}" method="get">-->
+<!--            <input type="hidden" name="pdfId" th:value="${pdf.id}" />-->
+<!--            <button type="submit">Download</button>-->
+<!--        </form>-->
+        <form th:action="@{/user/split}" method="post">
+            <input type="hidden" name="pdfId" th:value="${pdf.id}" />
+            <label>From:</label>
+            <input type="number" name="fromPage" required>
+            <label>To:</label>
+            <input type="number" name="toPage" required>
+            <button type="submit">Split</button>
+        </form>
+    </li>
+</ul>
+<p><a th:href="@{/user/upload}">Upload a new PDF</a></p>
+<p>
+<form th:action="@{/logout}" method="post">
+    <button type="submit">Logout</button>
+</form>
+</p>
+</body>
+</html>

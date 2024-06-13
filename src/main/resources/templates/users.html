@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User Management</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<h1>User Management</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Email</th>
+        <th>Status</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user : ${users}">
+        <td th:text="${user.email}"></td>
+        <td th:text="${user.active ? 'Active' : 'Blocked'}"></td>
+        <td>
+            <form th:action="@{/admin/block-user}" method="post" th:if="${user.active}">
+                <input type="hidden" name="userId" th:value="${user.id}">
+                <button type="submit">Block</button>
+            </form>
+            <form th:action="@{/admin/activate-user}" method="post" th:if="${!user.active}">
+                <input type="hidden" name="userId" th:value="${user.id}">
+                <button type="submit">Activate</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
