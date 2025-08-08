@@ -1,7 +1,6 @@
 package com.example.pdfmanagement.service;
 
 import com.example.pdfmanagement.model.AppUser;
-import com.example.pdfmanagement.model.Role;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
